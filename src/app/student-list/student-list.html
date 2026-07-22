@@ -1,0 +1,33 @@
+<div class="container mt-5">
+<h2 class="text-primary">Student List</h2>
+       
+       <button class="btn btn-primary mb-5"
+               (click)="toggleStudents()">
+
+               {{ showStudents ? 'Hide Students' : 'Show Students'}}
+
+       </button>
+
+       <div *ngIf="showStudents">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+             <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>City</th>
+             </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Student of students">
+                         <td>{{Student.id}}</td>
+                         <td>{{Student.name | capitalize}}</td>
+                         <td>{{Student.course}}</td>
+                         <td>{{Student.city}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+       </div>
+</div>

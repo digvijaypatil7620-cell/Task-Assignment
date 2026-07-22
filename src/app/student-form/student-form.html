@@ -1,0 +1,61 @@
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h3 appHighlight class="mb-0">Student Registration Form</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form (ngSubmit)="submitForm()">
+                <!-- <h2 appHighlight>
+
+                    Student Registration Form
+
+                </h2> -->
+                
+                <div class="mb-3">
+                    <label class="form-label">Student Name</label>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="student.name"
+                        placeholder="Enter Name">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" [(ngModel)]="student.email"
+                        placeholder="Enter Email">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Course</label>
+                    <input type="text" class="form-control" name="course" [(ngModel)]="student.course"
+                        placeholder="Enter Course">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Age</label>
+                    <input type="number" class="form-control" name="age" [(ngModel)]="student.age"
+                        placeholder="Enter Age">
+                </div>
+
+                <button id="submitBtn" appHighlight class="btn btn-success w-100" type="submit">
+                    Save Student
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="card mt-4 shadow">
+        <div class="card-header bg-dark text-white">
+            Live Preview
+        </div>
+
+        <div class="card-body">
+            <p><strong>Name:</strong> {{ student.name }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Course:</strong> {{ student.course }}</p>
+            <p><strong>Age:</strong> {{ student.age }}</p>
+        </div>
+    </div>
+</div>
