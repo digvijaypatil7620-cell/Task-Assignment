@@ -5,16 +5,17 @@ import { Home } from './home/home';
 import { StudentForm } from './student-form/student-form';
 import { About } from './about/about';
 import { StudentList } from "./student-list/student-list";
+import { PostList } from './post-list/post-list';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
     Home,
-    StudentForm,
-    About,
-    StudentList
+  StudentForm,
+  StudentList,
+  PostList,
+  About 
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
