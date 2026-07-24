@@ -1,13 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CapitalizePipe } from '../capitalize-pipe';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-student-list',
   standalone:true,
   imports: [
     CommonModule,
-    CapitalizePipe
+    CapitalizePipe,
+    RouterLink
   ],
   templateUrl: './student-list.html',
   styleUrl: './student-list.css',

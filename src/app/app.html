@@ -1,18 +1,18 @@
 <div class="container mt-4">
 
-  <h1 class="text-center text-primary mb-4">
-    Student Management System
-  </h1>
+  <h2 class="text-primary">Student Management System</h2>
 
-  <app-home></app-home>
+  <nav class="mb-3">
+    <a routerLink="">Home</a>
+    <a routerLink="/student-form">Student Form</a> |
+
+    <a routerLink="/students">Student List</a> |
+
+    <a routerLink="/posts">Posts</a> |
+
+    <a routerLink="/admin">Admin</a>
+  </nav>
 
   <hr>
-
-  <app-student-form></app-student-form>
-
-  <hr>
-
-  <app-about></app-about>
-<app-student-list></app-student-list>
-<app-post-list></app-post-list>
+<router-outlet></router-outlet>
 </div>
