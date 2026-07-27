@@ -6,38 +6,70 @@
 
         <div class="card-body">
 
-            <form (ngSubmit)="submitForm()">
+            <form #studentForm="ngForm" (ngSubmit)="submitForm()">
                 <!-- <h2 appHighlight>
 
                     Student Registration Form
 
                 </h2> -->
-                
+
                 <div class="mb-3">
                     <label class="form-label">Student Name</label>
-                    <input type="text" class="form-control" name="name" [(ngModel)]="student.name"
-                        placeholder="Enter Name">
+                    <input type="text" class="form-control" name="name" [(ngModel)]="student.name" required
+                        #name="ngModel" placeholder="Enter Name">
+                    <div class="text-danger" *ngIf="name.invalid && name.touched">
+
+                        Student Name is required
+
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" [(ngModel)]="student.email"
-                        placeholder="Enter Email">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="student.email" required email
+                        #email="ngModel" placeholder="Enter Email">
+                    <div class="text-danger" *ngIf="email.errors?.['required'] && email.touched">
+
+                        Email is required
+
+                    </div>
+
+                    <div class="text-danger" *ngIf="email.errors?.['email'] && email.touched">
+
+                        Invalid Email Format
+
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Course</label>
-                    <input type="text" class="form-control" name="course" [(ngModel)]="student.course"
-                        placeholder="Enter Course">
+                    <input type="text" class="form-control" name="course" [(ngModel)]="student.course" required
+                        #course="ngModel" placeholder="Enter Course">
+                    <div class="text-danger" *ngIf="course.invalid && course.touched">
+
+                        Course is required
+
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Age</label>
-                    <input type="number" class="form-control" name="age" [(ngModel)]="student.age"
-                        placeholder="Enter Age">
+                    <input type="number" class="form-control" name="age" [(ngModel)]="student.age" required min="18"
+                        #age="ngModel" placeholder="Enter Age">
+                    <div class="text-danger" *ngIf="age.errors?.['required'] && age.touched">
+
+                        Age is required
+
+                    </div>
+
+                    <div class="text-danger" *ngIf="age.errors?.['min'] && age.touched">
+
+                        Age must be 18 or above
+
+                    </div>
                 </div>
 
-                <button id="submitBtn" appHighlight class="btn btn-success w-100" type="submit">
+                <button id="submitBtn" appHighlight class="btn btn-success w-100" type="submit" [disabled]="studentForm.invalid">
                     Save Student
                 </button>
 

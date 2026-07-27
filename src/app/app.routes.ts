@@ -6,6 +6,7 @@ import { PostList } from './post-list/post-list';
 import { StudentDetails } from './student-details/student-details';
 import { Admin } from './admin/admin';
 import { authGuard } from './guards/auth-guard';
+import { EmployeeForm } from './employee-form/employee-form';
 
 export const routes: Routes = [
 
@@ -34,5 +35,9 @@ export const routes: Routes = [
         component:Admin,
         canActivate:[authGuard]
     },
+    {
+         path:'employee-form',
+         component:EmployeeForm
+    }
     
 ];
