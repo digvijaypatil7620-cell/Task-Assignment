@@ -1,52 +1,183 @@
-<div class="container mt-5">
-  <h2 class="text-primary">Student List</h2>
+<div class="container mt-4">
 
-  <button
-    class="btn btn-primary mb-3"
-    (click)="toggleStudents()">
+  <!-- Dashboard -->
 
-    {{ showStudents ? 'Hide Students' : 'Show Students' }}
+  <div class="row mb-4">
 
-  </button>
+    <div class="col-md-4">
 
-  <div *ngIf="showStudents">
+      <div class="card shadow border-0 bg-primary text-white">
 
-    <table class="table table-bordered table-striped">
+        <div class="card-body text-center">
 
-      <thead class="table-dark">
+          <h1>👨‍🎓</h1>
 
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Course</th>
-          <th>City</th>
-          <th>Action</th> <!-- New Column -->
-        </tr>
+          <h3>{{ totalStudents$ | async }}</h3>
 
-      </thead>
+          <p>Total Students</p>
 
-      <tbody>
+        </div>
 
-        <tr *ngFor="let student of students$ | async">
+      </div>
 
-          <td>{{ student.id }}</td>
-          <td>{{ student.name | capitalize }}</td>
-          <td>{{ student.course }}</td>
-          <td>{{ student.city }}</td>
+    </div>
 
-          <td>
-            <a
-              [routerLink]="['/student-details', student.id]"
-              class="btn btn-success btn-sm">
-              View
-            </a>
-          </td>
+    <div class="col-md-4">
 
-        </tr>
+      <div class="card shadow border-0 bg-success text-white">
 
-      </tbody>
+        <div class="card-body text-center">
 
-    </table>
+          <h1>📚</h1>
+
+          <h3>{{ totalCourses$ | async }}</h3>
+
+          <p>Courses</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+      <div class="card shadow border-0 bg-warning">
+
+        <div class="card-body text-center">
+
+          <h1>🌍</h1>
+
+          <h3>{{ totalCities$ | async }}</h3>
+
+          <p>Cities</p>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
+
+  <!-- Student List -->
+
+  <div class="card shadow">
+
+    <div class="card-header bg-primary text-white d-flex justify-content-between">
+
+      <h4 class="mb-0">
+
+        Student List
+
+      </h4>
+
+      <button
+        class="btn btn-light btn-sm"
+        (click)="toggleStudents()">
+
+        {{ showStudents ? 'Hide Students' : 'Show Students' }}
+
+      </button>
+
+    </div>
+
+    <div class="card-body">
+
+      <div class="row mb-3">
+
+        <div class="col-md-6">
+
+          <input
+            class="form-control"
+            placeholder="🔍 Search Student">
+
+        </div>
+
+        <div class="col-md-6 text-end">
+
+          <a
+            routerLink="/student-form"
+            class="btn btn-success">
+
+            + Add Student
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <div *ngIf="showStudents">
+
+        <table class="table table-hover table-bordered">
+
+          <thead class="table-primary">
+
+            <tr>
+
+              <th>ID</th>
+
+              <th>Name</th>
+
+              <th>Course</th>
+
+              <th>City</th>
+
+              <th>Action</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let student of students$ | async">
+
+              <td>{{ student.id }}</td>
+
+              <td>{{ student.name | capitalize }}</td>
+
+              <td>{{ student.course }}</td>
+
+              <td>{{ student.city }}</td>
+
+              <td>
+
+                <a
+                  [routerLink]="['/student-details', student.id]"
+                  class="btn btn-primary btn-sm me-2">
+
+                  👁 View
+
+                </a>
+
+                <button
+                  class="btn btn-warning btn-sm me-2">
+
+                  ✏ Edit
+
+                </button>
+
+                <button
+                  class="btn btn-danger btn-sm">
+
+                  🗑 Delete
+
+                </button>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>

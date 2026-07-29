@@ -1,0 +1,22 @@
+mat-card {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+button {
+  width: 100%;
+}
+
+.text-danger {
+  color: red;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}

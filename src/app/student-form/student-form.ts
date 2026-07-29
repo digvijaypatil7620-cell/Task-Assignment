@@ -3,13 +3,22 @@ import { FormsModule } from '@angular/forms';
 import { Highlight } from '../directives/highlight';
 import { Store } from '@ngrx/store';
 import * as StudentActions from '../store/actions/student.actions';
-
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-student-form',
   standalone: true,
   imports: [
+    CommonModule,
     FormsModule,
-    Highlight
+    Highlight,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   templateUrl: './student-form.html',
   styleUrl: './student-form.css',
@@ -22,7 +31,8 @@ export class StudentForm {
     name: '',
     email: '',
     course: '',
-    age: null
+    age: null,
+    city: ''
   };
 
   submitForm() {
@@ -39,7 +49,7 @@ export class StudentForm {
         id: Date.now(),
         name: this.student.name,
         course: this.student.course,
-        city: 'Pune'
+        city: this.student.city
       })
     );
 
@@ -51,7 +61,8 @@ export class StudentForm {
       name: '',
       email: '',
       course: '',
-      age: null
+      age: null,
+      city: ''
     };
   }
 }

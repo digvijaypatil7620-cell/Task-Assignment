@@ -1,93 +1,154 @@
 <div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-header bg-primary text-white">
-            <h3 appHighlight class="mb-0">Student Registration Form</h3>
-        </div>
 
-        <div class="card-body">
+    <mat-card class="shadow">
+
+        <mat-card-header>
+
+            <mat-card-title appHighlight>
+
+                Student Registration Form
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
 
             <form #studentForm="ngForm" (ngSubmit)="submitForm()">
-                <!-- <h2 appHighlight>
 
-                    Student Registration Form
+                <!-- Name -->
 
-                </h2> -->
+                <mat-form-field appearance="outline" class="full-width">
 
-                <div class="mb-3">
-                    <label class="form-label">Student Name</label>
-                    <input type="text" class="form-control" name="name" [(ngModel)]="student.name" required
-                        #name="ngModel" placeholder="Enter Name">
-                    <div class="text-danger" *ngIf="name.invalid && name.touched">
+                    <mat-label>Student Name</mat-label>
 
-                        Student Name is required
+                    <input matInput type="text" name="name" [(ngModel)]="student.name" required #name="ngModel">
 
-                    </div>
+                </mat-form-field>
+
+                <div class="text-danger" *ngIf="name.invalid && name.touched">
+
+                    Student Name is required
+
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" [(ngModel)]="student.email" required email
-                        #email="ngModel" placeholder="Enter Email">
-                    <div class="text-danger" *ngIf="email.errors?.['required'] && email.touched">
+                <!-- Email -->
 
-                        Email is required
+                <mat-form-field appearance="outline" class="full-width">
 
-                    </div>
+                    <mat-label>Email</mat-label>
 
-                    <div class="text-danger" *ngIf="email.errors?.['email'] && email.touched">
+                    <input matInput type="email" name="email" [(ngModel)]="student.email" required email
+                        #email="ngModel">
 
-                        Invalid Email Format
+                </mat-form-field>
 
-                    </div>
+                <div class="text-danger" *ngIf="email.errors?.['required'] && email.touched">
+
+                    Email is required
+
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Course</label>
-                    <input type="text" class="form-control" name="course" [(ngModel)]="student.course" required
-                        #course="ngModel" placeholder="Enter Course">
-                    <div class="text-danger" *ngIf="course.invalid && course.touched">
+                <div class="text-danger" *ngIf="email.errors?.['email'] && email.touched">
 
-                        Course is required
+                    Invalid Email Format
 
-                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Age</label>
-                    <input type="number" class="form-control" name="age" [(ngModel)]="student.age" required min="18"
-                        #age="ngModel" placeholder="Enter Age">
-                    <div class="text-danger" *ngIf="age.errors?.['required'] && age.touched">
+                <!-- Course -->
 
-                        Age is required
+                <mat-form-field appearance="outline" class="full-width">
 
-                    </div>
+                    <mat-label>Course</mat-label>
 
-                    <div class="text-danger" *ngIf="age.errors?.['min'] && age.touched">
+                    <input matInput type="text" name="course" [(ngModel)]="student.course" required #course="ngModel">
 
-                        Age must be 18 or above
+                </mat-form-field>
 
-                    </div>
+                <div class="text-danger" *ngIf="course.invalid && course.touched">
+
+                    Course is required
+
                 </div>
 
-                <button id="submitBtn" appHighlight class="btn btn-success w-100" type="submit" [disabled]="studentForm.invalid">
+                <!-- Age -->
+
+                <mat-form-field appearance="outline" class="full-width">
+
+                    <mat-label>Age</mat-label>
+
+                    <input matInput type="number" name="age" [(ngModel)]="student.age" required min="18" #age="ngModel">
+
+                </mat-form-field>
+
+                <div class="text-danger" *ngIf="age.errors?.['required'] && age.touched">
+
+                    Age is required
+
+                </div>
+
+                <div class="text-danger" *ngIf="age.errors?.['min'] && age.touched">
+
+                    Age must be 18 or above
+
+                </div>
+                   <!-- City -->
+
+                 <mat-form-field appearance="outline" class="full-width">
+
+                    <mat-label>City</mat-label>
+
+                    <input matInput type="text" name="city" [(ngModel)]="student.city" required #city="ngModel">
+
+                </mat-form-field>
+
+                <div class="text-danger" *ngIf="city.invalid && city.touched">
+
+                    City is required
+
+                </div>
+
+                <br>
+
+                <button mat-raised-button color="primary" appHighlight type="submit" class="full-width"
+                    [disabled]="studentForm.invalid">
+
                     Save Student
+
                 </button>
 
             </form>
 
-        </div>
-    </div>
+        </mat-card-content>
 
-    <div class="card mt-4 shadow">
-        <div class="card-header bg-dark text-white">
-            Live Preview
-        </div>
+    </mat-card>
 
-        <div class="card-body">
-            <p><strong>Name:</strong> {{ student.name }}</p>
-            <p><strong>Email:</strong> {{ student.email }}</p>
-            <p><strong>Course:</strong> {{ student.course }}</p>
-            <p><strong>Age:</strong> {{ student.age }}</p>
-        </div>
-    </div>
+    <!-- Live Preview -->
+
+    <mat-card class="mt-4 shadow">
+
+        <mat-card-header>
+
+            <mat-card-title>
+
+                Live Preview
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <p><strong>Name:</strong> {{student.name}}</p>
+
+            <p><strong>Email:</strong> {{student.email}}</p>
+
+            <p><strong>Course:</strong> {{student.course}}</p>
+
+            <p><strong>Age:</strong> {{student.age}}</p>
+
+        </mat-card-content>
+
+    </mat-card>
+
 </div>

@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+
+    background:#f4f6f9;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.navbar{
+
+    border-radius:0 0 10px 10px;
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:15px;
+
+    transition:0.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.table{
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+.btn{
+
+    border-radius:8px;
+
+}

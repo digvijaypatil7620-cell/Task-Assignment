@@ -1,0 +1,43 @@
+.card{
+
+    border-radius:15px;
+
+}
+
+.card-header{
+
+    border-radius:15px 15px 0 0;
+
+}
+
+.table{
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+}
+
+.table tbody tr:hover{
+
+    background:#f8f9fa;
+
+}
+
+.btn{
+
+    border-radius:8px;
+
+}
+
+.card-body h1{
+
+    font-size:40px;
+
+}
+
+.card-body h3{
+
+    font-weight:bold;
+
+}
