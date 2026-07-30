@@ -1,0 +1,52 @@
+<div class="card shadow border-0 h-100">
+
+    <div class="card-header bg-primary text-white text-center">
+
+        <h5>
+
+            👨‍🎓 Student Profile
+
+        </h5>
+
+    </div>
+
+    <div class="card-body text-center">
+
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            class="rounded-circle mb-3"
+            width="90">
+
+        <h4>
+
+            {{ student.name }}
+
+        </h4>
+
+        <p>
+
+            <strong>Course :</strong>
+
+            {{ student.course }}
+
+        </p>
+
+        <p>
+
+            <strong>City :</strong>
+
+            {{ student.city }}
+
+        </p>
+
+        <button
+            class="btn btn-primary w-100"
+            (click)="onViewStudent()">
+
+            👁 View Details
+
+        </button>
+
+    </div>
+
+</div>

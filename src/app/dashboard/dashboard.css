@@ -1,0 +1,53 @@
+.container-fluid{
+
+    padding:20px;
+
+}
+
+h2{
+
+    font-weight:bold;
+
+}
+
+app-college-card{
+
+    display:block;
+
+}
+
+button{
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+h1{
+
+    font-size:42px;
+
+    font-weight:bold;
+
+    color:#0d6efd;
+
+}
+
+p{
+
+    font-size:16px;
+
+}
+
+.col-lg-4{
+
+    transition:.3s;
+
+}
+
+.col-lg-4:hover{
+
+    transform:translateY(-8px);
+
+}

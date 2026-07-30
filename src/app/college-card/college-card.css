@@ -1,0 +1,21 @@
+.college-card{
+
+    border-radius:20px;
+
+    transition:0.3s;
+
+}
+
+.college-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.card-header{
+
+    border-radius:20px 20px 0 0 !important;
+
+}

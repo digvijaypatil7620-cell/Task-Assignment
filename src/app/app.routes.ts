@@ -7,37 +7,47 @@ import { StudentDetails } from './student-details/student-details';
 import { Admin } from './admin/admin';
 import { authGuard } from './guards/auth-guard';
 import { EmployeeForm } from './employee-form/employee-form';
+import { Dashboard } from './dashboard/dashboard';
 
 export const routes: Routes = [
 
     {
-        path:'',
-        component:Home
+        path: '',
+        component: Home
     },
     {
-        path:'student-form',
-        component:StudentForm
+        path: 'student-form',
+        component: StudentForm
     },
     {
-        path:'students',
-        component:StudentList
+        path: 'students',
+        component: StudentList
     },
     {
-        path:'posts',
-        component:PostList
+        path: 'posts',
+        component: PostList
     },
     {
-        path:'student-details/:id',
-        component:StudentDetails
+        path: 'student-details/:id',
+        component: StudentDetails
     },
     {
-        path:'admin',
-        component:Admin,
-        canActivate:[authGuard]
+        path: 'admin',
+        component: Admin,
+        canActivate: [authGuard]
     },
     {
-         path:'employee-form',
-         component:EmployeeForm
-    }
-    
+        path: 'employee-form',
+        component: EmployeeForm
+    },
+    {
+        path: 'dashboard',
+        component: Dashboard
+    },
+    {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+
 ];

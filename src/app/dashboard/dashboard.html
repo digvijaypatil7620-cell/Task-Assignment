@@ -1,0 +1,193 @@
+<div class="container-fluid">
+
+    <h2 class="text-center fw-bold text-primary mb-4">
+
+        🎓 D P PATIL COLLEGE OF ENGINEERING
+
+    </h2>
+
+    <p class="text-center text-muted">
+
+        College Management Dashboard
+
+    </p>
+
+    <div class="row g-4">
+
+        <!-- Students -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <app-college-card>
+
+                <span card-title>
+
+                    👨‍🎓 Students
+
+                </span>
+
+                <div class="text-center">
+
+                    <h1>{{ totalStudents$ | async }}</h1>
+
+                    <p>Total Registered Students</p>
+
+                    <button
+                        class="btn btn-primary"
+                        (click)="navigate('students')">
+
+                        View Students
+
+                    </button>
+
+                </div>
+
+            </app-college-card>
+
+        </div>
+
+        <!-- Teachers -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <app-college-card>
+
+                <span card-title>
+
+                    👨‍🏫 Teachers
+
+                </span>
+
+                <div class="text-center">
+
+                    <h1>{{ totalTeachers }}</h1>
+
+                    <p>Total Faculty Members</p>
+
+                    <button
+                        class="btn btn-success"
+                        (click)="navigate('teachers')">
+
+                        View Teachers
+
+                    </button>
+
+                </div>
+
+            </app-college-card>
+
+        </div>
+
+        <!-- Departments -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <app-college-card>
+
+                <span card-title>
+
+                    🏢 Departments
+
+                </span>
+
+                <div class="text-center">
+
+                    <h1>{{ totalDepartments }}</h1>
+
+                    <p>Engineering Departments</p>
+
+                    <button class="btn btn-warning">
+
+                        View Departments
+
+                    </button>
+
+                </div>
+
+            </app-college-card>
+
+        </div>
+
+        <!-- Courses -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <app-college-card>
+
+                <span card-title>
+
+                    📚 Courses
+
+                </span>
+
+                <div class="text-center">
+
+                    <h1>{{ totalCourses$ | async }}</h1>
+
+                    <p>Available Courses</p>
+
+                </div>
+
+            </app-college-card>
+
+        </div>
+
+        <!-- Cities -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <app-college-card>
+
+                <span card-title>
+
+                    🌍 Cities
+
+                </span>
+
+                <div class="text-center">
+
+                    <h1>{{ totalCities$ | async }}</h1>
+
+                    <p>Student Locations</p>
+
+                </div>
+
+            </app-college-card>
+
+        </div>
+
+        <!-- Posts -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <app-college-card>
+
+                <span card-title>
+
+                    📰 Posts
+
+                </span>
+
+                <div class="text-center">
+
+                    <h1>{{ totalPosts }}</h1>
+
+                    <p>API Posts</p>
+
+                    <button
+                        class="btn btn-danger"
+                        (click)="navigate('posts')">
+
+                        View Posts
+
+                    </button>
+
+                </div>
+
+            </app-college-card>
+
+        </div>
+
+    </div>
+
+</div>

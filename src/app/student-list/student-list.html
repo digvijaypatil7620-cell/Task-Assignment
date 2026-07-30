@@ -1,6 +1,6 @@
 <div class="container mt-4">
 
-  <!-- Dashboard -->
+  <!-- Dashboard Cards -->
 
   <div class="row mb-4">
 
@@ -32,7 +32,7 @@
 
           <h3>{{ totalCourses$ | async }}</h3>
 
-          <p>Courses</p>
+          <p>Total Courses</p>
 
         </div>
 
@@ -50,7 +50,7 @@
 
           <h3>{{ totalCities$ | async }}</h3>
 
-          <p>Cities</p>
+          <p>Total Cities</p>
 
         </div>
 
@@ -64,11 +64,11 @@
 
   <div class="card shadow">
 
-    <div class="card-header bg-primary text-white d-flex justify-content-between">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
 
       <h4 class="mb-0">
 
-        Student List
+        👨‍🎓 Student List
 
       </h4>
 
@@ -89,6 +89,7 @@
         <div class="col-md-6">
 
           <input
+            type="text"
             class="form-control"
             placeholder="🔍 Search Student">
 
@@ -100,7 +101,7 @@
             routerLink="/student-form"
             class="btn btn-success">
 
-            + Add Student
+            ➕ Add Student
 
           </a>
 
@@ -110,71 +111,56 @@
 
       <div *ngIf="showStudents">
 
-        <table class="table table-hover table-bordered">
+        <div class="row">
 
-          <thead class="table-primary">
+          <div
+            class="col-lg-4 col-md-6 mb-4"
+            *ngFor="let student of students$ | async">
 
-            <tr>
+            <app-student-card
+              [student]="student"
+              (viewStudent)="viewStudent($event)">
+            </app-student-card>
 
-              <th>ID</th>
+          </div>
 
-              <th>Name</th>
-
-              <th>Course</th>
-
-              <th>City</th>
-
-              <th>Action</th>
-
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            <tr *ngFor="let student of students$ | async">
-
-              <td>{{ student.id }}</td>
-
-              <td>{{ student.name | capitalize }}</td>
-
-              <td>{{ student.course }}</td>
-
-              <td>{{ student.city }}</td>
-
-              <td>
-
-                <a
-                  [routerLink]="['/student-details', student.id]"
-                  class="btn btn-primary btn-sm me-2">
-
-                  👁 View
-
-                </a>
-
-                <button
-                  class="btn btn-warning btn-sm me-2">
-
-                  ✏ Edit
-
-                </button>
-
-                <button
-                  class="btn btn-danger btn-sm">
-
-                  🗑 Delete
-
-                </button>
-
-              </td>
-
-            </tr>
-
-          </tbody>
-
-        </table>
+        </div>
 
       </div>
+
+    </div>
+
+  </div>
+
+  <!-- Selected Student -->
+
+  <div
+    class="card shadow mt-4 border-success"
+    *ngIf="selectedStudentId">
+
+    <div class="card-header bg-success text-white">
+
+      <h4>
+
+        ✅ Selected Student
+
+      </h4>
+
+    </div>
+
+    <div class="card-body">
+
+      <h5>
+
+        Student ID : {{ selectedStudentId }}
+
+      </h5>
+
+      <p>
+
+        This data came from the Child Component using <strong>@Output</strong>.
+
+      </p>
 
     </div>
 

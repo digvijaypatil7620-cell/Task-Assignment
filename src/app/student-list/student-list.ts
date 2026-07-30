@@ -4,16 +4,17 @@ import { RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
 
-import { CapitalizePipe } from '../capitalize-pipe';
+
 import { selectStudents } from '../store/selectors/student.selectors';
+import { StudentCard } from '../student-card/student-card';
 
 @Component({
   selector: 'app-student-list',
   standalone: true,
   imports: [
     CommonModule,
-    CapitalizePipe,
-    RouterLink
+    RouterLink,
+    StudentCard
   ],
   templateUrl: './student-list.html',
   styleUrl: './student-list.css',
@@ -23,38 +24,41 @@ export class StudentList {
 
   showStudents = true;
 
-  students$: Observable<any[]>;
+students$!: Observable<any[]>;
 
-  totalStudents$: Observable<number>;
+totalStudents$!: Observable<number>;
 
-  totalCourses$: Observable<number>;
+totalCourses$!: Observable<number>;
 
-  totalCities$: Observable<number>;
+totalCities$!: Observable<number>;
+selectedStudentId: number | null = null;
+ constructor(private store: Store) {
 
-  constructor(private store: Store) {
+  this.students$ = this.store.select(selectStudents);
 
-    this.students$ = this.store.select(selectStudents);
+  this.totalStudents$ = this.students$.pipe(
+    map(students => students.length)
+  );
 
-    this.totalStudents$ = this.students$.pipe(
-      map(students => students.length)
-    );
+  this.totalCourses$ = this.students$.pipe(
+    map(students => new Set(students.map(s => s.course)).size)
+  );
 
-    this.totalCourses$ = this.students$.pipe(
-      map(students =>
-        new Set(students.map(student => student.course)).size
-      )
-    );
+  this.totalCities$ = this.students$.pipe(
+    map(students => new Set(students.map(s => s.city)).size)
+  );
 
-    this.totalCities$ = this.students$.pipe(
-      map(students =>
-        new Set(students.map(student => student.city)).size
-      )
-    );
-
-  }
+}
 
   toggleStudents() {
     this.showStudents = !this.showStudents;
   }
+viewStudent(id: number) {
+
+  this.selectedStudentId = id;
+
+  console.log("Selected Student :", id);
+
+}
 
 }
