@@ -8,6 +8,7 @@ import { Admin } from './admin/admin';
 import { authGuard } from './guards/auth-guard';
 import { EmployeeForm } from './employee-form/employee-form';
 import { Dashboard } from './dashboard/dashboard';
+import { Login } from './login/login';
 
 export const routes: Routes = [
 
@@ -45,9 +46,15 @@ export const routes: Routes = [
         component: Dashboard
     },
     {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  },
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+    },
+
+    {
+        path: 'login',
+        component: Login
+    }
+
 
 ];

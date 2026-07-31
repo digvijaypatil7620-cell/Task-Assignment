@@ -1,11 +1,17 @@
 import { CanActivateFn } from '@angular/router';
 
 export const authGuard: CanActivateFn = () => {
-  const isLoggedIn = false;
 
-  if(isLoggedIn){
+  const token = localStorage.getItem('token');
+
+  if (token) {
+
     return true;
+
   }
-  alert("Access Denied");
+
+  alert('Please login first.');
+
   return false;
+
 };
