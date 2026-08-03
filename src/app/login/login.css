@@ -1,0 +1,139 @@
+body{
+    margin:0;
+}
+
+.login-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#0d6efd,#6610f2);
+
+    padding:30px;
+
+}
+
+.login-card{
+
+    width:420px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+    animation:fadeIn .6s;
+
+}
+
+.college-logo{
+
+    width:90px;
+
+    height:90px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:45px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+}
+
+.custom-input{
+
+    height:48px;
+
+    border-radius:10px;
+
+}
+
+.custom-input:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:0 0 10px rgba(13,110,253,.3);
+
+}
+
+.login-btn{
+
+    background:#0d6efd;
+
+    color:white;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#084298;
+
+    transform:translateY(-3px);
+
+}
+
+.demo-login{
+
+    background:#f8f9fa;
+
+    border-radius:12px;
+
+    padding:15px;
+
+    font-size:14px;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

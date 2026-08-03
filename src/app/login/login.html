@@ -1,36 +1,66 @@
+<div class="login-container">
 
-<div class="container mt-5">
-    <div class="card-shadow">
-       <div class="card-header bg-primary text-white">
-        <h3>
-            College Login 
-        </h3>
-       </div>
-       <div class="card-body">
+   <div class="login-card">
 
-        <form (ngSubmit)="login()">
-         <div class="mb-3">
-            <label>Email</label>
-            <input class="form-control"
-            [(ngModel)]="user.email"
-            name="email">
+      <div class="text-center mb-4">
+
+         <div class="college-logo">
+
+            🎓
+
          </div>
-         <div class="mb-3">
-            <label>Password</label>
-            <input type="password"
-            class="form-control"
-            [(ngModel)]="user.password"
-            name="password">
+
+         <h2>D P Patil College</h2>
+
+         <p class="text-muted">
+            College Management System
+         </p>
+
+      </div>
+
+      <form (ngSubmit)="login()">
+
+         <div class="input-group mb-3">
+
+            <span class="input-group-text">
+
+               <i class="bi bi-envelope-fill"></i>
+
+            </span>
+
+            <input type="email" class="form-control custom-input" placeholder="College Email" [(ngModel)]="user.email"
+               name="email">
+
          </div>
-         <button class="btn btn-success w-100">
-            Login
+
+         <div class="input-group mb-4">
+
+            <span class="input-group-text">
+
+               <i class="bi bi-lock-fill"></i>
+
+            </span>
+
+            <input type="password" class="form-control custom-input" placeholder="Password" [(ngModel)]="user.password"
+               name="password">
+
+         </div>
+
+         <button class="btn login-btn w-100">
+
+            🔐 Login
+
          </button>
-        </form> 
-         <div class="alert alert-danger mt-3"
-         *ngIf="error">
-          {{error}}
-         </div>
-       </div>
-    </div>
+
+      </form>
+
+      <div class="alert alert-danger mt-4" *ngIf="error">
+
+         {{ error }}
+
+      </div>
+
+
+   </div>
 
 </div>

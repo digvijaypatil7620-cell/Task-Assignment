@@ -10,10 +10,21 @@ describe('StudentCard', () => {
     await TestBed.configureTestingModule({
       imports: [StudentCard]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(StudentCard);
     component = fixture.componentInstance;
+    component.student = {
+
+      id: 1,
+
+      name: 'Rahul',
+
+      course: 'Angular',
+
+      city: 'Pune'
+
+    };
     fixture.detectChanges();
   });
 

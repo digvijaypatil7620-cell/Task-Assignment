@@ -31,7 +31,7 @@ export class StudentForm {
     name: '',
     email: '',
     course: '',
-    age: null,
+    age:  null as number | null,
     city: ''
   };
 

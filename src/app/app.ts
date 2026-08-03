@@ -16,7 +16,7 @@ import { AuthService } from './services/auth.service';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('student-management');
+  protected readonly title = signal('D P PATIL COLLEGE OF ENGINEERING');
 
   constructor(
 
