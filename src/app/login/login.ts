@@ -3,12 +3,14 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.css',

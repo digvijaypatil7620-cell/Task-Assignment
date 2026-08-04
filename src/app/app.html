@@ -3,13 +3,13 @@
   <div class="container">
 
     <a class="navbar-brand fw-bold" routerLink="/dashboard">
-      🎓 D P PATIL COLLEGE OF ENGINEERING
+       {{ 'APP_TITLE' | translate }}
     </a>
 
     <div class="navbar-nav ms-auto">
 
       <a class="nav-link" routerLink="/dashboard">
-        📊 Dashboard
+        {{ 'DASHBOARD' | translate }}
       </a>
 
       <!-- <a class="nav-link" routerLink="/student-form">
@@ -17,7 +17,7 @@
       </a> -->
 
       <a class="nav-link" routerLink="/students">
-        👨‍🎓 Student List
+        {{ 'STUDENT_LIST' | translate }}
       </a>
 
       <!-- <a class="nav-link" routerLink="/employee-form">
@@ -29,17 +29,35 @@
       </a> -->
 
       <a class="nav-link" routerLink="/admin">
-        🔒 Admin
+        {{ 'ADMIN' | translate }}
       </a>
       <a routerLink="/login" class="nav-link">
-
-        🔑 Login
-
+        {{ 'LOGIN' | translate }}
       </a>
-      
+
     </div>
-     <button class="btn btn-danger ms-2"
-     (click)="logout()">Logout</button>
+    <button class="btn btn-danger ms-2" (click)="logout()">
+      {{ 'LOGOUT' | translate }}
+    </button>
+    <div class="ms-3">
+
+      <select class="form-select" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+
+        <option value="en">
+
+          English
+
+        </option>
+
+        <option value="hi">
+
+          हिन्दी
+
+        </option>
+
+      </select>
+
+    </div>
   </div>
 
 </nav>

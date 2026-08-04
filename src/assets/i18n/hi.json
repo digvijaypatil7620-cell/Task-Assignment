@@ -1,0 +1,32 @@
+{
+  "APP_TITLE": "डी पी पाटिल कॉलेज ऑफ इंजीनियरिंग",
+
+  "HOME": "🏠 होम",
+  "DASHBOARD": "📊 डैशबोर्ड",
+  "ADD_STUDENT": "➕ छात्र जोड़ें",
+  "STUDENT_LIST": "👨‍🎓 छात्र सूची",
+  "ADD_TEACHER": "👨‍🏫 शिक्षक जोड़ें",
+  "POSTS": "📰 पोस्ट",
+  "ADMIN": "🔒 एडमिन",
+  "LOGIN": "🔐 लॉगिन",
+
+  "TOTAL_STUDENTS": "कुल छात्र",
+  "TOTAL_COURSES": "कुल पाठ्यक्रम",
+  "TOTAL_CITIES": "कुल शहर",
+
+  "SEARCH_STUDENT": "छात्र खोजें",
+
+  "VIEW_DETAILS": "विवरण देखें",
+  "GENERATE_QR": "QR बनाएं",
+  "DOWNLOAD_QR": "QR डाउनलोड करें",
+
+  "NAME": "नाम",
+  "COURSE": "पाठ्यक्रम",
+  "CITY": "शहर",
+
+  "WELCOME": "डी पी पाटिल कॉलेज ऑफ इंजीनियरिंग में आपका स्वागत है",
+
+  "LANGUAGE": "भाषा",
+  "ENGLISH": "English",
+  "HINDI": "हिन्दी"
+}

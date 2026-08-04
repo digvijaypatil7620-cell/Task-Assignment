@@ -27,3 +27,20 @@ img{
     border:4px solid #0d6efd;
 
 }
+.card-footer{
+
+    background: white;
+
+    border-top: none;
+
+    padding-bottom:20px;
+
+}
+
+.card-footer .btn{
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}

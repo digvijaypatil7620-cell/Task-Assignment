@@ -1,0 +1,32 @@
+{
+  "APP_TITLE": "D P PATIL COLLEGE OF ENGINEERING",
+
+  "HOME": "🏠 Home",
+  "DASHBOARD": "📊 Dashboard",
+  "ADD_STUDENT": "➕ Add Student",
+  "STUDENT_LIST": "👨‍🎓 Student List",
+  "ADD_TEACHER": "👨‍🏫 Add Teacher",
+  "POSTS": "📰 Posts",
+  "ADMIN": "🔒 Admin",
+  "LOGIN": "🔐 Login",
+
+  "TOTAL_STUDENTS": "Total Students",
+  "TOTAL_COURSES": "Total Courses",
+  "TOTAL_CITIES": "Total Cities",
+
+  "SEARCH_STUDENT": "Search Student",
+
+  "VIEW_DETAILS": "View Details",
+  "GENERATE_QR": "Generate QR",
+  "DOWNLOAD_QR": "Download QR",
+
+  "NAME": "Name",
+  "COURSE": "Course",
+  "CITY": "City",
+
+  "WELCOME": "Welcome to D P Patil College of Engineering",
+
+  "LANGUAGE": "Language",
+  "ENGLISH": "English",
+  "HINDI": "हिन्दी"
+}

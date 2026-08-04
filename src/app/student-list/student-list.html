@@ -14,7 +14,7 @@
 
           <h3>{{ totalStudents$ | async }}</h3>
 
-          <p>Total Students</p>
+         <p>{{ 'TOTAL_STUDENTS' | translate }}</p>
 
         </div>
 
@@ -32,7 +32,7 @@
 
           <h3>{{ totalCourses$ | async }}</h3>
 
-          <p>Total Courses</p>
+          <p>{{'TOTAL_COURSES' | translate}}</p>
 
         </div>
 
@@ -50,7 +50,7 @@
 
           <h3>{{ totalCities$ | async }}</h3>
 
-          <p>Total Cities</p>
+          <p>{{'TOTAL_CITIES' | translate}}</p>
 
         </div>
 
@@ -68,13 +68,11 @@
 
       <h4 class="mb-0">
 
-        👨‍🎓 Student List
+        {{ 'STUDENT_LIST' | translate }}
 
       </h4>
 
-      <button
-        class="btn btn-light btn-sm"
-        (click)="toggleStudents()">
+      <button class="btn btn-light btn-sm" (click)="toggleStudents()">
 
         {{ showStudents ? 'Hide Students' : 'Show Students' }}
 
@@ -88,18 +86,13 @@
 
         <div class="col-md-6">
 
-          <input
-            type="text"
-            class="form-control"
-            placeholder="🔍 Search Student">
+          <input type="text" class="form-control" placeholder="🔍 Search Student">
 
         </div>
 
         <div class="col-md-6 text-end">
 
-          <a
-            routerLink="/student-form"
-            class="btn btn-success">
+          <a routerLink="/student-form" class="btn btn-success">
 
             ➕ Add Student
 
@@ -113,13 +106,9 @@
 
         <div class="row">
 
-          <div
-            class="col-lg-4 col-md-6 mb-4"
-            *ngFor="let student of students$ | async">
+          <div class="col-lg-4 col-md-6 mb-4" *ngFor="let student of students$ | async">
 
-            <app-student-card
-              [student]="student"
-              (viewStudent)="viewStudent($event)">
+            <app-student-card [student]="student" (viewStudent)="viewStudent($event)" (generateQR)="generateQR($event)">
             </app-student-card>
 
           </div>
@@ -134,9 +123,7 @@
 
   <!-- Selected Student -->
 
-  <div
-    class="card shadow mt-4 border-success"
-    *ngIf="selectedStudentId">
+  <!-- <div class="card shadow mt-4 border-success" *ngIf="selectedStudentId">
 
     <div class="card-header bg-success text-white">
 
@@ -161,6 +148,103 @@
         This data came from the Child Component using <strong>@Output</strong>.
 
       </p>
+
+    </div>
+
+  </div> -->
+
+</div>
+<!-- QR Code Modal -->
+
+<div
+  class="modal fade"
+  id="qrModal"
+  tabindex="-1">
+
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+      <div class="modal-header bg-success text-white">
+
+        <h5 class="modal-title">
+
+          🎓 Student Identity Card
+
+        </h5>
+
+        <button
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal">
+        </button>
+
+      </div>
+
+      <div
+        class="modal-body text-center"
+        id="qrCard">
+
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          width="90"
+          class="rounded-circle mb-3">
+
+        <h4>
+
+          {{selectedStudent?.name}}
+
+        </h4>
+
+        <p>
+
+          <strong>ID :</strong>
+
+          {{selectedStudent?.id}}
+
+        </p>
+
+        <p>
+
+          <strong>Course :</strong>
+
+          {{selectedStudent?.course}}
+
+        </p>
+
+        <p>
+
+          <strong>City :</strong>
+
+          {{selectedStudent?.city}}
+
+        </p>
+
+        <img
+          *ngIf="qrCodeImage"
+          [src]="qrCodeImage"
+          width="220">
+
+      </div>
+
+      <div class="modal-footer">
+
+        <button
+          class="btn btn-success"
+          (click)="downloadQR()">
+
+          ⬇ {{'DOWNLOAD' | translate}}
+
+        </button>
+
+        <button
+          class="btn btn-secondary"
+          data-bs-dismiss="modal">
+
+          Close
+
+        </button>
+
+      </div>
 
     </div>
 
