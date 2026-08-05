@@ -1,0 +1,50 @@
+.card{
+
+    border-radius:15px;
+
+}
+
+.card-header{
+
+    border-radius:15px 15px 0 0;
+
+}
+
+.form-control,
+.form-select{
+
+    border-radius:10px;
+
+}
+
+textarea{
+
+    resize:none;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+    padding:10px 25px;
+
+}
+
+label{
+
+    font-weight:600;
+
+}
+
+.card{
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}

@@ -1,0 +1,95 @@
+.employee-card{
+
+border:none;
+
+border-radius:20px;
+
+transition:.4s;
+
+overflow:hidden;
+
+}
+
+.employee-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.card-header{
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+.teacher-image{
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+border:5px solid #0d6efd;
+
+padding:5px;
+
+background:white;
+
+}
+
+.badge{
+
+font-size:14px;
+
+padding:8px 12px;
+
+margin-top:10px;
+
+}
+
+.card-body p{
+
+font-size:15px;
+
+margin-bottom:10px;
+
+}
+
+.btn{
+
+border-radius:10px;
+
+font-weight:600;
+
+}
+
+.qr-box{
+
+padding:20px;
+
+background:#ffffff;
+
+border-radius:15px;
+
+border:2px dashed #0d6efd;
+
+}
+
+.qr-box img{
+
+border:8px solid white;
+
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+hr{
+
+margin:15px 0;
+
+}

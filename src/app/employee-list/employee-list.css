@@ -1,0 +1,59 @@
+.dashboard-card{
+
+border:none;
+
+border-radius:18px;
+
+transition:.3s;
+
+}
+
+.dashboard-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.card{
+
+border-radius:15px;
+
+}
+
+.card-header{
+
+border-radius:15px 15px 0 0;
+
+}
+
+.form-control{
+
+border-radius:10px;
+
+}
+
+.btn{
+
+border-radius:10px;
+
+}
+
+.card-body h1{
+
+font-size:40px;
+
+}
+
+.card-body h3{
+
+font-weight:bold;
+
+}
+
+.card-body p{
+
+font-size:18px;
+
+}

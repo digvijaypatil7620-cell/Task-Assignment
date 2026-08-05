@@ -17,7 +17,7 @@ import {
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { studentReducer } from './store/reducers/student.reducers';
 import { authInterceptor } from './interceptors/auth-interceptor';
 
@@ -27,6 +27,7 @@ import {
 } from '@ngx-translate/core';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { employeeReducer } from './store/reducers/employee.reducers';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(
@@ -51,11 +52,12 @@ export const appConfig: ApplicationConfig = {
     ),
 
     provideStore({
-      students: studentReducer
+      students: studentReducer,
+      employees:employeeReducer
     }),
 
     provideEffects(),
-
+   provideAnimations(),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode()

@@ -6,6 +6,7 @@ export interface Student{
 }
 
 export interface StudentState{
+    employees: any;
     students:Student[];
 }
 

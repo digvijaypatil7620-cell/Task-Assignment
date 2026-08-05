@@ -54,7 +54,26 @@ export const routes: Routes = [
     {
         path: 'login',
         component: Login
-    }
+    },
+    {
+  path: 'employee-form',
+  loadComponent: () =>
+    import('./employee-form/employee-form')
+      .then(c => c.EmployeeForm)
+},
+{
+  path: 'employee-form/:id',
+  loadComponent: () =>
+    import('./employee-form/employee-form')
+      .then(c => c.EmployeeForm)
+},
+{
+  path: 'employee-list',
+  loadComponent: () =>
+    import('./employee-list/employee-list')
+      .then(c => c.EmployeeList)
+},
+
 
 
 ];
