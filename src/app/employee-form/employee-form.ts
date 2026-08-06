@@ -39,74 +39,89 @@ export class EmployeeForm implements OnInit {
   employeeId = 0;
 
   departments = [
-
     'Computer',
-
     'Mechanical',
-
     'Civil',
-
     'Electrical',
-
     'Electronics'
-
   ];
 
   subjects = [
-
     'Angular',
-
     'Java',
-
     'Python',
-
     'C#',
-
     'SQL',
-
     'Machine Learning'
-
   ];
 
   constructor(
-
     private fb: FormBuilder,
-
     private router: Router,
-
     private route: ActivatedRoute,
-
     private store: Store
-
   ) {
 
     this.employeeForm = this.fb.group({
 
-      name: ['', Validators.required],
+      name: [
+        '',
+        [Validators.required, Validators.minLength(3)]
+      ],
 
-      email: ['', [Validators.required, Validators.email]],
+      email: [
+        '',
+        [Validators.required, Validators.email]
+      ],
 
-      password: ['', [
+      password: [
+        '',
+        [
+          Validators.required,
+          this.passwordValidator
+        ]
+      ],
 
-        Validators.required,
+      department: [
+        '',
+        Validators.required
+      ],
 
-        this.passwordValidator
+      subject: [
+        '',
+        Validators.required
+      ],
 
-      ]],
+      qualification: [
+        '',
+        Validators.required
+      ],
 
-      department: ['', Validators.required],
+      experience: [
+        '',
+        [
+          Validators.required,
+          Validators.min(0)
+        ]
+      ],
 
-      subject: ['', Validators.required],
+      phone: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^[0-9]{10}$/)
+        ]
+      ],
 
-      qualification: ['', Validators.required],
+      city: [
+        '',
+        Validators.required
+      ],
 
-      experience: [0, Validators.required],
-
-      phone: ['', Validators.required],
-
-      city: ['', Validators.required],
-
-      address: ['', Validators.required]
+      address: [
+        '',
+        Validators.required
+      ]
 
     });
 
@@ -115,9 +130,7 @@ export class EmployeeForm implements OnInit {
   ngOnInit(): void {
 
     this.employeeId = Number(
-
       this.route.snapshot.paramMap.get('id')
-
     );
 
     if (this.employeeId) {
@@ -131,13 +144,10 @@ export class EmployeeForm implements OnInit {
   loadEmployee() {
 
     this.store.select(selectEmployees)
-
       .subscribe(employees => {
 
         const employee = employees.find(
-
           x => x.id === this.employeeId
-
         );
 
         if (employee) {
@@ -152,29 +162,66 @@ export class EmployeeForm implements OnInit {
 
   passwordValidator(control: AbstractControl): ValidationErrors | null {
 
-    const value = control.value;
-
-    if (!value) {
-
-      return null;
-
-    }
+    const value = control.value || '';
 
     const hasUpper = /[A-Z]/.test(value);
 
+    const hasLower = /[a-z]/.test(value);
+
     const hasNumber = /[0-9]/.test(value);
+
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
 
     const hasLength = value.length >= 8;
 
-    return hasUpper && hasNumber && hasLength
-
+    return hasUpper &&
+      hasLower &&
+      hasNumber &&
+      hasSpecial &&
+      hasLength
       ? null
-
       : { invalidPassword: true };
+
+  }
+  get password() {
+
+    return this.employeeForm.get('password');
+
+  }
+
+  hasUpperCase(): boolean {
+
+    return /[A-Z]/.test(this.password?.value || '');
+
+  }
+
+  hasLowerCase(): boolean {
+
+    return /[a-z]/.test(this.password?.value || '');
+
+  }
+
+  hasNumber(): boolean {
+
+    return /[0-9]/.test(this.password?.value || '');
+
+  }
+
+  hasSpecialCharacter(): boolean {
+
+    return /[!@#$%^&*(),.?":{}|<>]/.test(this.password?.value || '');
+
+  }
+
+  hasMinLength(): boolean {
+
+    return (this.password?.value || '').length >= 8;
 
   }
 
   submit() {
+
+    console.log("Submit button clicked");
 
     if (this.employeeForm.invalid) {
 
@@ -186,41 +233,31 @@ export class EmployeeForm implements OnInit {
 
     const employee: Employee = {
 
-      id: this.employeeId ? this.employeeId : Date.now(),
+      id: this.employeeId || Date.now(),
 
       ...this.employeeForm.value
 
     };
 
+    console.log(employee);
+
     if (this.employeeId) {
 
       this.store.dispatch(
-
-        updateEmployee({
-
-          employee
-
-        })
-
+        updateEmployee({ employee })
       );
 
-      alert('Teacher Updated Successfully');
+      alert("Teacher Updated Successfully");
 
     }
 
     else {
 
       this.store.dispatch(
-
-        addEmployee({
-
-          employee
-
-        })
-
+        addEmployee({ employee })
       );
 
-      alert('Teacher Registered Successfully');
+      alert("Teacher Registered Successfully");
 
     }
 

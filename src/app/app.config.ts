@@ -52,12 +52,15 @@ export const appConfig: ApplicationConfig = {
     ),
 
     provideStore({
+
       students: studentReducer,
-      employees:employeeReducer
+
+      employees: employeeReducer
+
     }),
 
     provideEffects(),
-   provideAnimations(),
+    provideAnimations(),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode()

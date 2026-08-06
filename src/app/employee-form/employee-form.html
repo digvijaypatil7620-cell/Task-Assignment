@@ -1,6 +1,6 @@
 <div class="container mt-4">
 
-    <div class="card shadow">
+    <div class="card shadow-lg border-0">
 
         <div class="card-header bg-primary text-white">
 
@@ -14,69 +14,131 @@
 
         <div class="card-body">
 
-            <form
-
-                [formGroup]="employeeForm"
-
-                (ngSubmit)="submit()">
+            <form [formGroup]="employeeForm" (ngSubmit)="submit()">
 
                 <div class="row">
 
+                    <!-- Name -->
+
                     <div class="col-md-6 mb-3">
 
-                        <label>Teacher Name</label>
+                        <label class="fw-bold">
 
-                        <input
+                            Teacher Name
 
-                            class="form-control"
+                        </label>
 
-                            formControlName="name">
+                        <input class="form-control" placeholder="Enter Teacher Name" formControlName="name">
+
+                        <small class="text-danger" *ngIf="employeeForm.get('name')?.touched &&
+                                   employeeForm.get('name')?.invalid">
+
+                            Name is required (Minimum 3 letters)
+
+                        </small>
 
                     </div>
 
+                    <!-- Email -->
+
                     <div class="col-md-6 mb-3">
 
-                        <label>Email</label>
+                        <label class="fw-bold">
 
-                        <input
+                            Email
 
-                            class="form-control"
+                        </label>
 
+                        <input type="email" class="form-control" placeholder="teacher@gmail.com"
                             formControlName="email">
 
+                        <small class="text-danger" *ngIf="employeeForm.get('email')?.touched &&
+                                   employeeForm.get('email')?.invalid">
+
+                            Enter a valid email
+
+                        </small>
+
                     </div>
+
+                    <!-- Password -->
 
                     <div class="col-md-6 mb-3">
 
-                        <label>Password</label>
+                        <label class="fw-bold">
 
-                        <input
+                            Password
 
-                            type="password"
+                        </label>
 
-                            class="form-control"
-
+                        <input type="password" class="form-control" placeholder="Enter Password"
                             formControlName="password">
 
+                        <div class="mt-2" *ngIf="password?.touched && password?.invalid">
+
+                            <small class="d-block" [class.text-success]="hasMinLength()"
+                                [class.text-danger]="!hasMinLength()">
+
+                                {{hasMinLength() ? '✔' : '✖'}}
+                                Minimum 8 Characters
+
+                            </small>
+
+                            <small class="d-block" [class.text-success]="hasUpperCase()"
+                                [class.text-danger]="!hasUpperCase()">
+
+                                {{hasUpperCase() ? '✔' : '✖'}}
+                                One Uppercase Letter
+
+                            </small>
+
+                            <small class="d-block" [class.text-success]="hasLowerCase()"
+                                [class.text-danger]="!hasLowerCase()">
+
+                                {{hasLowerCase() ? '✔' : '✖'}}
+                                One Lowercase Letter
+
+                            </small>
+
+                            <small class="d-block" [class.text-success]="hasNumber()"
+                                [class.text-danger]="!hasNumber()">
+
+                                {{hasNumber() ? '✔' : '✖'}}
+                                One Number
+
+                            </small>
+
+                            <small class="d-block" [class.text-success]="hasSpecialCharacter()"
+                                [class.text-danger]="!hasSpecialCharacter()">
+
+                                {{hasSpecialCharacter() ? '✔' : '✖'}}
+                                One Special Character
+
+                            </small>
+
+                        </div>
+
                     </div>
+
+                    <!-- Department -->
 
                     <div class="col-md-6 mb-3">
 
-                        <label>Department</label>
+                        <label class="fw-bold">
 
-                        <select
+                            Department
 
-                            class="form-select"
+                        </label>
 
-                            formControlName="department">
+                        <select class="form-select" formControlName="department">
 
-                            <option value="">Select Department</option>
+                            <option value="">
 
-                            <option
+                                Select Department
 
-                                *ngFor="let d of departments"
+                            </option>
 
-                                [value]="d">
+                            <option *ngFor="let d of departments" [value]="d">
 
                                 {{d}}
 
@@ -86,23 +148,25 @@
 
                     </div>
 
+                    <!-- Subject -->
+
                     <div class="col-md-6 mb-3">
 
-                        <label>Subject</label>
+                        <label class="fw-bold">
 
-                        <select
+                            Subject
 
-                            class="form-select"
+                        </label>
 
-                            formControlName="subject">
+                        <select class="form-select" formControlName="subject">
 
-                            <option value="">Select Subject</option>
+                            <option value="">
 
-                            <option
+                                Select Subject
 
-                                *ngFor="let s of subjects"
+                            </option>
 
-                                [value]="s">
+                            <option *ngFor="let s of subjects" [value]="s">
 
                                 {{s}}
 
@@ -112,67 +176,80 @@
 
                     </div>
 
-                    <div class="col-md-6 mb-3">
-
-                        <label>Qualification</label>
-
-                        <input
-
-                            class="form-control"
-
-                            formControlName="qualification">
-
-                    </div>
+                    <!-- Qualification -->
 
                     <div class="col-md-6 mb-3">
 
-                        <label>Experience</label>
+                        <label class="fw-bold">
 
-                        <input
+                            Qualification
 
-                            type="number"
+                        </label>
 
-                            class="form-control"
-
-                            formControlName="experience">
+                        <input class="form-control" placeholder="B.Tech / M.Tech" formControlName="qualification">
 
                     </div>
+
+                    <!-- Experience -->
 
                     <div class="col-md-6 mb-3">
 
-                        <label>Phone</label>
+                        <label class="fw-bold">
 
-                        <input
+                            Experience
 
-                            class="form-control"
+                        </label>
 
-                            formControlName="phone">
+                        <input type="number" class="form-control" formControlName="experience">
 
                     </div>
+
+                    <!-- Phone -->
 
                     <div class="col-md-6 mb-3">
 
-                        <label>City</label>
+                        <label class="fw-bold">
 
-                        <input
+                            Phone
 
-                            class="form-control"
+                        </label>
 
-                            formControlName="city">
+                        <input class="form-control" placeholder="9876543210" formControlName="phone">
+
+                        <small class="text-danger" *ngIf="employeeForm.get('phone')?.invalid &&
+                                   employeeForm.get('phone')?.touched">
+
+                            Enter a valid 10 digit phone number
+
+                        </small>
 
                     </div>
+
+                    <!-- City -->
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="fw-bold">
+
+                            City
+
+                        </label>
+
+                        <input class="form-control" placeholder="Pune" formControlName="city">
+
+                    </div>
+
+                    <!-- Address -->
 
                     <div class="col-12 mb-3">
 
-                        <label>Address</label>
+                        <label class="fw-bold">
 
-                        <textarea
+                            Address
 
-                            rows="3"
+                        </label>
 
-                            class="form-control"
-
-                            formControlName="address">
+                        <textarea rows="3" class="form-control" formControlName="address">
 
                         </textarea>
 
@@ -180,11 +257,9 @@
 
                 </div>
 
-                <button
+                <button class="btn btn-success w-100" [disabled]="employeeForm.invalid">
 
-                    class="btn btn-success">
-
-                    Register Teacher
+                    {{employeeId ? '✏ Update Teacher' : '➕ Register Teacher'}}
 
                 </button>
 

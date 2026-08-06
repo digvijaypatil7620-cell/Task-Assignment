@@ -2,25 +2,40 @@ import { createReducer, on } from '@ngrx/store';
 
 import * as EmployeeActions from '../actions/employee.actions';
 
-import { Employee } from '../../models/empolyee';
-
-export const initialState: Employee[] = [];
+import {
+  EmployeeState,
+  initialState
+} from '../state/employee.state';
 
 export const employeeReducer = createReducer(
 
   initialState,
 
-  on(EmployeeActions.addEmployee, (state, { employee }) => [
+ on(EmployeeActions.addEmployee, (state, { employee }) => {
+
+  console.log("Reducer Running", employee);
+
+  return {
 
     ...state,
 
-    employee
+    employees: [
 
-  ]),
+      ...state.employees,
 
-  on(EmployeeActions.updateEmployee, (state, { employee }) =>
+      employee
 
-    state.map(emp =>
+    ]
+
+  };
+
+}),
+
+  on(EmployeeActions.updateEmployee, (state, { employee }) => ({
+
+    ...state,
+
+    employees: state.employees.map(emp =>
 
       emp.id === employee.id
 
@@ -30,16 +45,18 @@ export const employeeReducer = createReducer(
 
     )
 
-  ),
+  })),
 
-  on(EmployeeActions.deleteEmployee, (state, { id }) =>
+  on(EmployeeActions.deleteEmployee, (state, { id }) => ({
 
-    state.filter(emp =>
+    ...state,
+
+    employees: state.employees.filter(emp =>
 
       emp.id !== id
 
     )
 
-  )
+  }))
 
 );

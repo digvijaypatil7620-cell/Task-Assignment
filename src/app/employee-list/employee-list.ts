@@ -54,7 +54,7 @@ export class EmployeeList {
     this.store.select(selectEmployees)
 
       .subscribe(data => {
-
+       console.log("Employees Store",data);
         this.employees = data;
 
         this.filteredEmployees = [...data];
